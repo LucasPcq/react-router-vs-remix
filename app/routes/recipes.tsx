@@ -1,6 +1,7 @@
-import { Await, defer, useLoaderData } from "@remix-run/react";
-import { getRecipes } from "../api/recipes";
 import { Suspense } from "react";
+import { Await, defer, useLoaderData } from "@remix-run/react";
+
+import { getRecipes } from "../api/recipes";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const clientLoader = async () => {

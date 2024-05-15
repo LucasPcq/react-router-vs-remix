@@ -1,6 +1,6 @@
 import axios from "axios";
 
-type Recipe = {
+export type Recipe = {
   id: string;
   name: string;
   description: string;

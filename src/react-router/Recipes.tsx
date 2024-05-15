@@ -1,10 +1,7 @@
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
 
-type Recipe = {
-  id: string;
-  name: string;
-};
+import { Recipe } from "../../app/api/recipes";
 
 const Recipes = () => {
   const { recipes } = useLoaderData();

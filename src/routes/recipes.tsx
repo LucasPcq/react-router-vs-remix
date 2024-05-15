@@ -1,6 +1,7 @@
-import { Await, createFileRoute, defer } from "@tanstack/react-router";
-import { getRecipes } from "../../app/api/recipes";
 import { Suspense } from "react";
+import { Await, createFileRoute, defer } from "@tanstack/react-router";
+
+import { getRecipes } from "../../app/api/recipes";
 
 export const Route = createFileRoute("/recipes")({
   loader: async () => {
