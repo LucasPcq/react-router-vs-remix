@@ -1,4 +1,4 @@
-import { Outlet, createBrowserRouter, json } from "react-router-dom";
+import { Outlet, createBrowserRouter, defer } from "react-router-dom";
 
 import { getRecipes } from "../../app/api/recipes";
 
@@ -7,9 +7,9 @@ import App from "./App";
 import Recipes from "./Recipes";
 
 const recipesLoader = async () => {
-  const recipes = await getRecipes();
+  const recipes = getRecipes();
 
-  return json({
+  return defer({
     recipes,
   });
 };
