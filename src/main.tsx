@@ -9,13 +9,14 @@ import {
 
 import App from "./App.tsx";
 import Recipes from "./Recipes.tsx";
+import { getRecipes } from "../app/api/recipes.ts";
+import About from "./About.tsx";
 
 const recipesLoader = async () => {
+  const recipes = await getRecipes();
+
   return json({
-    recipes: [
-      { id: 1, name: "Pizza" },
-      { id: 2, name: "Burger" },
-    ],
+    recipes,
   });
 };
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
             element: <Recipes />,
             errorElement: <div>Recipes not found</div>,
             loader: recipesLoader,
+          },
+          {
+            path: "about",
+            element: <About />,
           },
         ],
       },

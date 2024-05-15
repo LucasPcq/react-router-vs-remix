@@ -11,11 +11,9 @@ export const clientLoader = async () => {
 export default function Recipes() {
   const { recipes } = useLoaderData<typeof clientLoader>();
 
-  console.log(recipes);
-
   return (
     <div className="recipes">
-      <h1>Recipes</h1>
+      <h1>Recipes with Remix</h1>
       <ul>
         {recipes.map((recipe) => (
           <li key={recipe.id}>{recipe.name}</li>
