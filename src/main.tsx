@@ -1,53 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  json,
-  Outlet,
-  RouterProvider,
-} from "react-router-dom";
 
-import App from "./App.tsx";
-import Recipes from "./Recipes.tsx";
-import { getRecipes } from "../app/api/recipes.ts";
-import About from "./About.tsx";
+// import { RouterProvider } from "react-router-dom";
+// import { reactRouter } from "./react-router/router";
 
-const recipesLoader = async () => {
-  const recipes = await getRecipes();
+import { createRouter, RouterProvider } from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
 
-  return json({
-    recipes,
-  });
-};
+const tanstackRouter = createRouter({ routeTree });
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "",
-        element: <Outlet />,
-        errorElement: <div>Not found</div>,
-        children: [
-          {
-            path: "recipes",
-            element: <Recipes />,
-            errorElement: <div>Recipes not found</div>,
-            loader: recipesLoader,
-          },
-          {
-            path: "about",
-            element: <About />,
-          },
-        ],
-      },
-    ],
-  },
-]);
+// Register the router instance for type safety
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof tanstackRouter;
+  }
+}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    {/* <RouterProvider router={reactRouter} /> */}
+    <RouterProvider router={tanstackRouter} />
   </React.StrictMode>
 );

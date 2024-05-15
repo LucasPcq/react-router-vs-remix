@@ -10,7 +10,7 @@ const Recipes = () => {
 
   return (
     <div className="recipes">
-      <h1>Recipes with React Router</h1>
+      <h1>Recipes with React-Router</h1>
       <ul>
         {recipes.map((recipe) => (
           <li key={recipe.id}>{recipe.name}</li>

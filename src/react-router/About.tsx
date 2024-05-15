@@ -1,5 +1,5 @@
 const About = () => {
-  return <p>About Page</p>;
+  return <h1>About React-Router</h1>;
 };
 
 export default About;

@@ -8,6 +8,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <h1>Remix App</h1>
         <div style={{ display: "flex", gap: "1rem" }}>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
